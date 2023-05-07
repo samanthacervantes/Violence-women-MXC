@@ -6,9 +6,11 @@ Created on Tue Apr 25 21:28:12 2023
 @author: samcerv
 """
 
-
+import pandas as pd
 import geopandas as gpd
 import matplotlib.pyplot as plt
+import os 
+from geopandas import points_from_xy
 
 ### This is a document to create exclusive 1 and 2 km buffers around BRT lines to then 
 ## compare counts of crime through time in the inner vs outer layer
@@ -76,11 +78,17 @@ slices=slices.dropna(subset=['radius'])
 
 
 # We read the victim spatial data frame created before 
+#vict_gdf=gpd.read_file("vict_gdf.gpkg",layer="victim")
 
-vict_gdf=gpd.read_file("vict_gdf.gpkg")
+urb_ct2=urb_ct.to_crs("EPSG:32614")
+vict_crs=pd.read_csv("vict2.csv")
+
+### Create a geodatagrame and reproject it to the same CRS as the census tract shapefiles
+vict_gdf = gpd.GeoDataFrame( vict_crs, crs="EPSG:4326",  geometry=points_from_xy(  vict_crs["longitud"], vict_crs["latitud"]),)
+vict_gdf=vict_gdf.to_crs(urb_ct2.crs)
 
 
-# Overlay of the radius and the victim points......
+# Overlay of the radius and the victim points
 
 vict_buff=gpd.overlay(vict_gdf,ring_layer,how='union',keep_geom_type=True)
 
@@ -106,36 +114,8 @@ buff_mon["ratio_prop"]=buff_mon["Prop_fem"]/buff_mon["Prop_masc"]
 
 radius_wide=buff_mon.unstack("radius")
 
-wide_DV=radius_wide.iloc[:, [62, 63]]
-wide_tot=radius_wide.iloc[:, [64, 65]]
-wide_viol=radius_wide.iloc[:, [66, 67]]
-wide_freedom=radius_wide.iloc[:, [68, 69]]
-wide_prop=radius_wide.iloc[:, [70, 71]]
 
-x=radius_wide["ratio_DV"]
-
-# Begin new figure
-
-fig1,ax1=plt.subplots(dpi=300)
-fig1.suptitle("Ratio of X in Inner vs Outer rings")
-
-# Plot all crime 
-wide_tot.plot(ax=ax1)
-
-ax1.set_xlabel("Date")
-ax1.set_ylabel("Ration Fem/Male")
-fig1.tight_layout()
-fig1.savefig("ratio_tot.png")
-
-
-### wide de toda la base de datos
-
-tot_wide=buff_mon.unstack("radius")
-
-############## Intento de loop
-
-
-### D. Quick analysis of several variables
+### Quick analysis of several variables
 
 # List of elements for tuple
 
@@ -162,6 +142,20 @@ for var in plot_info:
     fig.savefig(f"fig{nfig}.png")
 
 
+## We do the same plot but onyl showing the inner and outer ring trend for DV against women.
+
+x=radius_wide["DV_fem"]
+
+# Begin new figure
+
+fig1,ax1=plt.subplots(dpi=300)
+fig1.suptitle("Ratio of DV against women in Inner vs Outer rings")
+# Plot all crime 
+x.plot(ax=ax1)
+ax1.set_xlabel("Date")
+ax1.set_ylabel("DV")
+fig1.tight_layout()
+fig1.savefig("inner_vs_outer_DV_fem.png")
 
 
 
