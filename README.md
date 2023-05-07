@@ -26,7 +26,7 @@ The heatmaps were created in QGIS first importing the "df_ageb_urb.shp" and "Met
 
 ### Section II
 
-The chloropleths are constructed with Mexico City's urban census tract as described in the previous paragraph and the 2010 Social Exclusion Index at the Census Tract level in Mexico City. As the document that contains all 2,435 census tracts cannot be found anymore, I provided the database that was saved before it was altered. This is called "exclusionindex.csv", and the script to create a unique identifier for each census tract that can be matched with the census tract shapefile is in "exclusion.py". For the crime chloropleth, the input is "vict2.csv" as described above. The script that produces the chloropleths is called "maps.py".
+The script that produces the results of this section is called "maps.py". The chloropleths are constructed with Mexico City's urban census tract as described in the previous paragraph and the 2010 Social Exclusion Index at the Census Tract level in Mexico City. As the document that contains all 2,435 census tracts cannot be found anymore, I provided the database that was saved before it was altered. This is called "exclusionindex.csv", and the script to create a unique identifier for each census tract that can be matched with the census tract shapefile is in "exclusion.py". For the crime chloropleth, the input is "vict2.csv" as described above. 
 
 ### Section IV
 
