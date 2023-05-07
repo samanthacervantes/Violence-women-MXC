@@ -50,6 +50,8 @@ fig, ax = plt.subplots(figsize=(20, 8))
 ct_excl.plot(ax=ax, alpha=1.0, markersize=2, column="IMU2010", scheme="natural_breaks", legend=True)
 plt.title("Social Exclusion Index", fontsize=20)
 brt_lines.plot(ax=ax, alpha=1, markersize=3, legend=False,color='orange')
+fig.savefig("social_exclusion.png")
+
 
 # Another way of seeing the chloropleth
 ct_excl.plot(column='IMU2010', cmap='Reds', legend=True)
@@ -87,7 +89,8 @@ polygons = pd.merge(left=urb_ct2, right=count, left_on=polygon_id_field, right_i
 fig, ax = plt.subplots(figsize=(20, 8))
 polygons.plot(ax=ax, alpha=1.0, markersize=2, column="pointcount", scheme='natural_breaks',legend=True)
 brt_lines.plot(ax=ax, alpha=1, markersize=3, legend=False,color='orange')
-plt.title("Total Crime by Census Tract, 2019-22", fontsize=20)
+#plt.title("Total Crime by Census Tract, 2019-22", fontsize=20)
+fig.savefig("crime_chloropleth.png")
 
 
 
@@ -97,14 +100,19 @@ count_excl  = polygons.merge(excl, on='CVEGEO', how='left')
 
 jg=sns.jointplot(data=count_excl,x="IMU2010",y="pointcount",kind="hex")
 jg.set_axis_labels("Crime","Marginality")
-jg.fig.suptitle("Distribution of Systems by Cost and Capacity")
+jg.fig.suptitle("Hexaplot Crime and Marginality")
 jg.fig.tight_layout()
+jg.fig.savefig("hexa_count_crime_marginality.png")
+
 
 ## Vamos a hacer dos cosas: log y condicionar a que valroes sean positivos
 
 count_excl['ln_crime']= np.log(count_excl.pointcount)
 jg=sns.jointplot(data=count_excl,x="IMU2010",y="ln_crime",kind="hex")
 jg.set_axis_labels("Crime","Marginality")
+jg.fig.suptitle("Hexaplot Crime and Marginality")
+jg.fig.tight_layout()
+jg.fig.savefig("hexa_log_crime_marginality.png")
 
 
 

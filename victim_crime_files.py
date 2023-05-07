@@ -129,7 +129,7 @@ vict2['Month_Year'] = vict["ymd"].dt.to_period('M')
 vict3=vict2.groupby('Month_Year')
 crimes_month=vict3.sum()
 
-### Time series plots
+### Time series plots by each gender-pair of type of crimes, taking from the crimes_month database which contains all
 
 # Total Crime
 vict4=crimes_month[['Women','Men']]
@@ -230,6 +230,8 @@ sns.kdeplot(data=near_kidn,x="feature_x",palette="rocket",hue="Sexo",fill=True,a
 ax1.set_xlabel("Distance to Nearest Station")
 ax1.set_xlim(0, 25000)
 fig.tight_layout()
+fig.savefig("kidnapping_density25km.png")
+
 
 ## Kidnapping up to 5km from nearest station
 fig,ax1=plt.subplots(dpi=300)
@@ -237,6 +239,8 @@ sns.kdeplot(data=near_kidn,x="feature_x",palette="rocket",hue="Sexo",fill=True,a
 ax1.set_xlabel("Distance to Nearest Station")
 ax1.set_xlim(0, 5000)
 fig.tight_layout()
+fig.savefig("kidnapping_density5km.png")
+
 
 ## All crime using the whole distribution of distance to nearest station
 nearest=nearest.reset_index()
@@ -245,12 +249,15 @@ sns.kdeplot(data=nearest,x="feature_x",palette="mako",hue="Sexo",fill=True,ax=ax
 ax1.set_xlabel("Distance to Nearest Station")
 ax1.set_xlim(0, 25000)
 fig.tight_layout()
+fig.savefig("allcrime_density25km.png")
+
 
 fig,ax1=plt.subplots(dpi=300)
 sns.kdeplot(data=nearest,x="feature_x",palette="mako",hue="Sexo",fill=True,ax=ax1)
 ax1.set_xlabel("Distance to Nearest Station")
 ax1.set_xlim(0, 5000)
 fig.tight_layout()
+fig.savefig("allcrime_density5km.png")
 
 
 
