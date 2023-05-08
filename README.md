@@ -18,7 +18,7 @@ There are four scripts in the repository. To what section of the analysis they a
 
 ### Section I and III
 
-The first one is "victim_crime_files.py". The link to obtain the victim crime data is directly used in the script. This file produces the time series plots and the distance to nearest station analysis, as well as "vict2.csv" the crime point file that will be used to conduct the nearest station analysis. The instructions to conduct this analysis are the following.
+The first one is **"victim_crime_files.py"**. The link to obtain the victim crime data is directly used in the script. This file produces the time series plots and the distance to nearest station analysis, as well as "vict2.csv" the crime point file that will be used to conduct the nearest station analysis. The instructions to conduct this analysis are the following.
 
 In QGIS, I imported the "df_ageb_urb.shp" shapefile of the urban census tracts of Mexico City obtained from "https://www.inegi.org.mx/app/biblioteca/ficha.html?upc=702825292812". Then, I plotted over it the "Metrobus_estaciones_utm14n.shp" obtained from "https://datos.cdmx.gob.mx/dataset/geolocalizacion-metrobus" and the victim point files produced by "victim_crime_files.py", "vict2.csv". All files are in the repo. I reprojected the victim point files to the same CRS than the BRT stations, which is 32614 with UTN-18. I then duplicated the layer and in one duplicated filtered Sexo=="Femenino" (gender of victims being equal to females), and for the other one Sexo=="Masculino". Subsequently, I used "Join attributes by nearest", using as the Input layer the point layer (one for female, one for male) and over it the BRT stations layer. Then, I exported the two attribute tables as "nearest_fem.csv.zip" and "masc_nearest.csv.zip", for men and women, respectively. 
 
@@ -26,11 +26,11 @@ The heatmaps were created in QGIS first importing the "df_ageb_urb.shp" and "Met
 
 ### Section II
 
-The script that produces the results of this section is called "maps.py". The chloropleths are constructed with Mexico City's urban census tract as described in the previous paragraph and the 2010 Social Exclusion Index at the Census Tract level in Mexico City. As the document that contains all 2,435 census tracts cannot be found anymore, I provided the database that was saved before it was altered. This is called "exclusionindex.csv", and the script to create a unique identifier for each census tract that can be matched with the census tract shapefile is in "exclusion.py". For the crime chloropleth, the input is "vict2.csv" as described above. 
+The scripts that produce the results of this section are called "exclusion.py"** and **"maps.py"**. The chloropleths are constructed with Mexico City's urban census tract as described in the previous paragraph and the 2010 Social Exclusion Index at the Census Tract level in Mexico City. As the document that contains all 2,435 census tracts cannot be found anymore, I provided the database that was saved before it was altered. This is called "exclusionindex.csv", and the script to create a unique identifier for each census tract that can be matched with the census tract shapefile is in "exclusion.py". For the crime chloropleth, the input is "vict2.csv" as described above. 
 
 ### Section IV
 
-The input files for this section are "Metrobus_lineas_utm14n.shp", "df_ageb_urb.shp", and "vict_gdf.gpkg" The latter is an intermediate geopackage layer that contains the victim crime point file. 
+The script that produces this section is **"RINGS.py"**, and the input files are "Metrobus_lineas_utm14n.shp", "df_ageb_urb.shp", and "vict_gdf.gpkg" The latter is an intermediate geopackage layer that contains the victim crime point file. 
 
 
 
