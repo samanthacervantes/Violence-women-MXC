@@ -134,41 +134,48 @@ crimes_month=vict3.sum()
 # Total Crime
 vict4=crimes_month[['Women','Men']]
 vict4.plot().set(title='Total Crime, by Gender, 2019-22')
+plt.savefig('Total_crime.png')
 
 
 # Domestic Violence
 
 vict5=crimes_month[['DV_fem','DV_masc']]
 vict5.plot().set(title='Domestic Violence, by Gender, 2019-22')
+plt.savefig('Domestic_violence.png')
 
 # Sexual crimes
 
 vict6=crimes_month[['Sexual_fem','Sexual_masc']]
 vict6.rename(columns={'Sexual_fem': 'Women', 'Sexual_masc': 'Men'}, inplace=True)
 vict6.plot().set(title='Sexual Assault, by Gender, 2019-22')
+plt.savefig('Sexual_assault.png')
 
 ## Violent 
 vict7=crimes_month[['Violent_fem','Violent_masc']]
 vict7.rename(columns={'Violent_fem': 'Women', 'Violent_masc': 'Men'}, inplace=True)
 vict7.plot().set(title='Violent Crime, by Gender, 2019-22')
+plt.savefig('Violent_crime.png')
 
 # Freedom/kidnapping
 
 vict8=crimes_month[['Freedom_fem','Freedom_masc']]
 vict8.rename(columns={'Freedom_fem': 'Women', 'Freedom_masc': 'Men'}, inplace=True)
 vict8.plot().set(title='Kidnapping, by Gender, 2019-22')
+plt.savefig('Kidnapping.png')
 
 
 # Feminicide
 vict9=crimes_month[['Feminicide']]
 #vict8.rename(columns={'Freedom_fem': 'Women', 'Freedom_masc': 'Men'}, inplace=True)
-vict9.plot()
+vict9.plot().set(title='Feminicide, by Gender, 2019-22')
+plt.savefig('Feminicide.png')
 #vict9.plot().set(title='Kidnapping, by Gender, 2019-22')
 
 # Violent female 
 vict10=crimes_month[['Violent_fem']]
 #vict8.rename(columns={'Freedom_fem': 'Women', 'Freedom_masc': 'Men'}, inplace=True)
-vict10.plot()
+vict10.plot().set(title='Violent against women, 2019-22')
+plt.savefig('Violent_women.png')
 
 # Drop observations where latitude or longitude information is missing 
 
