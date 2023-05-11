@@ -11,10 +11,13 @@ In Mexico City, women are perceived to be disproportionately at risk of crime vi
 
 ![alt text](https://github.com/samanthacervantes/Violence-women-MXC/blob/main/social_exclusion.png)
 
-![alt text2]([https://github.com/samanthacervantes/Violence-women-MXC/blob/main/social_exclusion](https://github.com/samanthacervantes/Violence-women-MXC/blob/main/crime_chloropleth.png)
+![alt text2](https://github.com/samanthacervantes/Violence-women-MXC/blob/main/crime_chloropleth.png)
 
 
 Maps show that the center of the city is where most of crime is concentrated, as well as where most public transit points are. Furthermore, census tract that have high concentrations of crime seem to be also those that have richer households (measured as low values of Social Exclusion).
+
+![alt text3](https://github.com/samanthacervantes/Violence-women-MXC/blob/main/Property_heatmap.png)
+![alt text3](https://github.com/samanthacervantes/Violence-women-MXC/blob/main/DV_heatmap.png)
 
 
 
