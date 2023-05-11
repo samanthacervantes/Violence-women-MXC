@@ -12,6 +12,8 @@ In Mexico City, women are perceived to be disproportionately at risk of crime vi
 
 **Section IV** creates exclusive 1-km and 2-km buffers around the BRT system lines, counts how many crimes of different categories happen within each buffer, by sex of the victim, and then compares the ratio of female to male crime incidence of each type through the period of study. The ratio of female/male incidence of domestic violence, violent crime, and kidnapping of women increases over time and has a higher level in the 1-km area around stations relative to the 2-km one. Property crime does not exhibit this behavior, with both the inner and outer ring trends being similar over time. The ratio of domestic violence against women has a higher level in the 2-km ring around stations than the 1-km one. Results suggest that for some types of crimes, the neighborhoods around stations might indeed be more dangerous, and are in the trend of becoming more, for women.  
 
+![alt text](https://github.com/samanthacervantes/Violence-women-MXC/blob/main/social_exclusion.png)
+
 ## Documentation
 
 There are four scripts in the repository. To what section of the analysis they are associated with, the data sources they use, how to obtain them and produce them, and the outputs of each script are described below. The order in which they appear is the order in which they should be ran. 
