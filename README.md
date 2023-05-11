@@ -6,19 +6,7 @@ In Mexico City, women are perceived to be disproportionately at risk of crime vi
 
 **Section I** describes how several types of crimes perpetrated towards women and men evolve through time, showing that 1) All crime and kidnappings are at least as perpetrated towards women relative to men, if not more, 2) that certain types of crime are gendered and of high incidence against women (such as domestic violence and sexual assault), 3) that violent crime against women has increased in the city for the period of study. Violent crime in this measure encompasses homicide, injuries, and feminicide (homicide involving sexual assault or by an intimate partner). 
 
-**Section II** creates chloropleths of the Social Exclusion Index (by CONEVAL, the Mexican Agency of poverty measurement) and crime over Mexico City at the census tract level, as well as heatmaps of domestic violence and property theft in the City. The BRT system is overlayed in all maps, in order to be able to see the correlation between proximity to the public transit system (as the BRT and the subway systems overlap, composing the "fast" public modes of transport) and the aforementioned variables.
-
-
-![alt text](https://github.com/samanthacervantes/Violence-women-MXC/blob/main/social_exclusion.png)
-
-![alt text2](https://github.com/samanthacervantes/Violence-women-MXC/blob/main/crime_chloropleth.png)
-
-
-Maps show that the center of the city is where most of crime is concentrated, as well as where most public transit points are. Furthermore, census tract that have high concentrations of crime seem to be also those that have richer households (measured as low values of Social Exclusion).
-
-![alt text3](https://github.com/samanthacervantes/Violence-women-MXC/blob/main/Property_heatmap.png)
-![alt text3](https://github.com/samanthacervantes/Violence-women-MXC/blob/main/DV_heatmap.png)
-
+**Section II** creates chloropleths of the Social Exclusion Index (by CONEVAL, the Mexican Agency of poverty measurement) and crime over Mexico City at the census tract level, as well as heatmaps of domestic violence and property theft in the City. The BRT system is overlayed in all maps, in order to be able to see the correlation between proximity to the public transit system (as the BRT and the subway systems overlap, composing the "fast" public modes of transport) and the aforementioned variables. Maps show that the center of the city is where most of crime is concentrated, as well as where most public transit points are. Furthermore, census tract that have high concentrations of crime seem to be also those that have richer households (measured as low values of Social Exclusion).
 
 
 **Section III** conducts a "distance to nearest station analysis". In it, the distance of each crime to its nearest BRT station is computed using QGIS, and then exported to Python to create overlay density maps that compare the distance relative to the nearest station distribution of women and men, for different categories of crime. All types of crime are concentrated relatively near stations, but distributions peak at a 1-km radius from the station. When crimes are aggregated, crimes against men seem to be more clustered around stations than females'; however, other types of crime have more incidence near stations for women than for men, such as kidnapping. 
